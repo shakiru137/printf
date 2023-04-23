@@ -93,13 +93,4 @@ int dig(char);
 
 long int numberConv(long int num, int size);
 long int unsignedConv(unsigned long int num, int size);
-#endif 
-
-
-
-
-
-
-
-
-
+#endif
