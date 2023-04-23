@@ -1,6 +1,6 @@
 #include "main.h"
 void print_buffer(char buffer[], int *buffHand)
-int printf(const char *format, ...)
+int _printf(const char *format, ...)
 {
 	int i;
 	print = 0;
