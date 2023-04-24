@@ -1,6 +1,10 @@
 #include "main.h"
 /**
- * get_flags - A function that calculates active flags
+ * flags - A function that calculates active flags
+ * @format: Format of the pointer
+ * @i: Pointer.
+ *
+ * Return: flag on SUCCESS.
  */
 int flags(const char *format, int *i)
 {
@@ -25,7 +29,12 @@ int flags(const char *format, int *i)
 	return (flag);
 }
 /**
- *precision  - A function that calculates the precision for printing
+ * precision  - A function that calculates the precision for printing.
+ * @format: Format of the character.
+ * @i: Pointer.
+ * @list: Contains the value.
+ *
+ * Return: precision on SUCCESS.
  */
 int precision(const char *format, int *i, va_list list)
 {
@@ -60,6 +69,10 @@ int precision(const char *format, int *i, va_list list)
 }
 /**
  * size - A function that calculates the size to cast the argument
+ * @format: Format of the character.
+ * @i: Pointer.
+ *
+ * Return: size on SUCCESS.
  */
 int size(const char *format, int *i)
 {
@@ -79,6 +92,11 @@ int size(const char *format, int *i)
 }
 /**
  * width - A function that calculates the width for printing
+ * @format: Format of the charater.
+ * @i: Pointer.
+ * @list: The incoming value.
+ *
+ * Return: wi on SUCCESS.
  */
 int width(const char *format, int *i, va_list list)
 {
@@ -104,4 +122,3 @@ int width(const char *format, int *i, va_list list)
 	*i = cu_i - 1;
 	return (wi);
 }
-

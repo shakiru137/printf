@@ -1,5 +1,11 @@
 #include "main.h"
-void print_buffer(char buffer[], int *buffHand)
+void print_buffer(char buffer[], int *buffHand);
+/**
+ * _printf - Function that print variables.
+ * @format: The variable type.
+ *
+ * Return: int (SUCCESS).
+ */
 int _printf(const char *format, ...)
 {
 	int i, print = 0, printed = 0;
@@ -38,6 +44,14 @@ int _printf(const char *format, ...)
 	va_end(list);
 	return (printedHand);
 }
+
+/**
+ * print_buffer - Function that that handle the print.
+ * @buffer: Arays of value in the buffer.
+ * @buffHand: Pointer.
+ *
+ * Return: Nothing.
+ */
 void print_buffer(char buffer[], int *buffHand)
 {
 	if (*buffHand > 0)

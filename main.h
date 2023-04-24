@@ -14,6 +14,11 @@
 /* Defing the sizes */
 #define S_LONG 2
 #define S_SHORT 1
+/**
+ * struct fmt - struct function.
+ * @fmt: format.
+ * @k: Pointer.
+ */
 struct fmt
 {
 	char fmt;
