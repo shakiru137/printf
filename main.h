@@ -14,18 +14,15 @@
 /* Defing the sizes */
 #define S_LONG 2
 #define S_SHORT 1
-struct format
+struct fmt
 {
-	char format;
+	char fmt;
 	int (*k)(va_list, char[], int, int, int, int);
 };
-typedef struct format formatType;
+typedef struct fmt formatType;
 int _printf(const char *format, ...);
-int aug_type(const char *format, int *i,
+int aug_type(const char *fmt, int *i,
 va_list list, char buffer[], int flag, int width, int precision, int size);
-/*
- *The functions to  print out the chars, strings and percent  
- */
 int chars(va_list types, char buffer[],
 	int flag, int width, int precision, int size);
 int strings(va_list types, char buffer[],
@@ -55,16 +52,18 @@ int type_octal(va_list types, char buffer[],
 	int flag, int width, int precision, int size);
 int type_hexadecimal(va_list types, char buffer[],
 	int flag, int width, int precision, int size);
-int type_hexa(va_list types, char buffer[],
+int type_hexa_upper(va_list types, char buffer[],
 	int flag, int width, int precision, int size);
-int type_hexa(va_list types, char map_to[],char buffer[], int flag, char flagCharacter, int width, int precision, int size);
+int type_hexa(va_list types, char map_to[], char buffer[], int flag,
+	char flagCharacter, int width, int precision, int size);
 /* The  funcions to handle the  specifiers */
-int flags(const char *formats, int *i);
-int width(const char *formats, int *i, va_list list);
-int precision(const char *formats, int *i, va_list list);
-int size(const char *formats, int *i);
+int flags(const char *format, int *i);
+int width(const char *format, int *i, va_list list);
+int precision(const char *format, int *i, va_list list);
+int size(const char *format, int *i);
 /*
- *  The function to print out a string in reverse*/
+ *  The function to print out a string in reverse
+ */
 int reverse(va_list types, char buffer[],
 	int flag, int width, int precision, int size);
 /*
@@ -85,7 +84,7 @@ int handlePointer(char buffer[], int index, int length,
 	int width, int flag, char point, char ch, int pointStart);
 
 int handleUnsigned(int negative, int index,
-char buffer[],int flag, int width, int precision, int size);
+char buffer[], int flag, int width, int precision, int size);
 
 int printable(char);
 int hexaCode(char, char[], int);
