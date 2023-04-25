@@ -16,8 +16,6 @@
 #define S_SHORT 1
 /**
  * struct fmt - struct function.
- * @fmt: format.
- * @k: Pointer.
  */
 struct fmt
 {
@@ -33,7 +31,7 @@ int chars(va_list types, char buffer[],
 int strings(va_list types, char buffer[],
 	int flag, int width, int precision, int size);
 int percents(va_list types, char buffer[],
-	int flag, int width, int precision, int size;
+	int flag, int width, int precision, int size);
 /*
  *  A function to print the  non printable characters
  */
