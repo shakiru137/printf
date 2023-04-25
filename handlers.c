@@ -79,7 +79,7 @@ int handleNum(int index, char orr[], int flag, int width,
 		if (flag & F_MINUS && d == ' ')
 		{
 		if (ch)
-			orr[--index] == ch;
+			orr[--index] = ch;
 		return (write(1, &orr[index], length) + write(1, &orr[1], i - 1));
 		}
 		else if (!(flag & F_MINUS) && d == ' ')
@@ -91,12 +91,13 @@ return (write(1, &orr[1], index - 1) + write(1, &orr[index], length));
 		else if (!(flag & F_MINUS) && d == '0')
 		{
 		if (ch)
-			orr[--d_start] = ch; return (write(1, &orr[d_start], i - d_start) +
+			orr[--d_start] = ch;
+		return (write(1, &orr[d_start], i - d_start) +
 		write(1, &orr[index], length - (1 - d_start)));
 		}
 	}
 	if (ch)
-		orr[--index] == ch;
+		orr[--index] = ch;
 	return (write(1, &orr[index], length));
 }
 
@@ -182,7 +183,7 @@ int handlePointer(char buffer[], int index, int length,
 		else if (!(flag & F_MINUS) && point == '0')
 		{
 			if (ch)
-				buffer[--pointStart] == ch;
+				buffer[--pointStart] = ch;
 			buffer[1] = '0';
 			buffer[2] = 'x';
 			return (write(1, &buffer[pointStart], i - pointStart) +

@@ -47,6 +47,20 @@ int type_hexa(va_list types, char map_to[], char buffer[],
 	if (number == 0)
 		buffer[i--] = '0';
 	buffer[BUFF_SIZE - 1] = '\0';
+
+	while (number > 0)
+	{
+		buffer[i--] = map_to[number % 16];
+	}
+
+	if (flag & F_HASH && num_init != 0)
+	{
+		buffer[i--] = flagCharater;
+		buffer[i--] = '0';
+	}
+	i++;
+
+	return (handleUnsigned(0, i, buffer, flag, width, precision, size));
 }
 
 

@@ -120,8 +120,8 @@ int type_binary(va_list types, char buffer[], int flag,
 			write(1, &z, 1);
 			count++;
 		}
-		return (count);
 	}
+		return (count);
 }
 
 
