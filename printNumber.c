@@ -140,7 +140,7 @@ int type_octal(va_list types, char buffer[], int flag,
 		int width, int precision, int size)
 {
 	unsigned int i = BUFF_SIZE - 2; /* BUFF_SIZE */
-	unsigned long int number = ca_arg(types, unsigned long int);
+	unsigned long int number = va_arg(types, unsigned long int);
 	unsigned long int num_init = number;
 
 	UNUSED(width);
