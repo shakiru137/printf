@@ -40,7 +40,8 @@ int type_int(va_list type, char buffer[], int flag,
 	}
 	i++;
 
-	return (handleNumber(is_negative, i, buffer, width, precision, size));
+	return (handleNumber(is_negative, i, buffer, flag,
+				width, precision, size));
 }
 
 
