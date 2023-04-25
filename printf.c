@@ -9,7 +9,7 @@ void print_buffer(char buffer[], int *buffHand);
 int _printf(const char *format, ...)
 {
 	int i, print = 0, printed = 0;
-	int flag, width, precision, size, buffHand = 0;
+	int flag, widths, precisions, sizes, buffHand = 0;
 	va_list list;
 	char buffer[BUFF_SIZE];
 
@@ -29,12 +29,12 @@ int _printf(const char *format, ...)
 		{
 			print_buffer(buffer, &buffHand);
 			flag = flags(format, &i);
-			width = width(format, &i, list);
-			precision = precision(format, &i, list);
-			size = size(format, &i);
+			widths = width(format, &i, list);
+			precisions = precision(format, &i, list);
+			sizes = size(format, &i);
 			++i;
 			printedHand = aug_type(format, &i, list, buffer,
-				flag, width, precision, size);
+				flag, widths, precisions, sizes);
 			if (printedHand == -1)
 				return (-1);
 			printed += printedHand;
