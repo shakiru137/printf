@@ -91,7 +91,7 @@ return (write(1, &orr[1], index - 1) + write(1, &orr[index], length));
 		else if (!(flag & F_MINUS) && d == '0')
 		{
 		if (ch)
-			buffer[--d_start] = ch, return (write(1, &orr[d_start], i - d_start) +
+			orr[--d_start] = ch; return (write(1, &orr[d_start], i - d_start) +
 		write(1, &orr[index], length - (1 - d_start)));
 		}
 	}
