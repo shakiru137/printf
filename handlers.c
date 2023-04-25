@@ -217,7 +217,7 @@ int handleUnsigned(int negative, int index,
 	int i = 0;
 	char point = ' ';
 
-	int length BUFF_SIZE - index - 1;
+	int length = BUFF_SIZE - index - 1;
 
 	UNUSED(negative);
 	UNUSED(size);
