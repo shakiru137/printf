@@ -8,7 +8,7 @@ void print_buffer(char buffer[], int *buffHand);
  */
 int _printf(const char *format, ...)
 {
-	int i, print = 0, printed = 0;
+	int i, printHand = 0, printed = 0;
 	int flag, widths, precisions, sizes, buffHand = 0;
 	va_list list;
 	char buffer[BUFF_SIZE];
