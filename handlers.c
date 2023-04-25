@@ -233,7 +233,7 @@ int handleUnsigned(int negative, int index,
 	}
 
 	if ((flag & F_ZERO) && !(flag & F_MINUS))
-		padd = '0';
+		point = '0';
 	if (width > length)
 	{
 		for (i = 0; i < width - length; i++)
