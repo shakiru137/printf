@@ -38,7 +38,7 @@ int flags(const char *format, int *i)
  */
 int precision(const char *format, int *i, va_list list)
 {
-	int cu_i = *i + 1;
+	int curr_i = *i + 1;
 	int prec = -1;
 
 	if (format[cu_i] != '.')
