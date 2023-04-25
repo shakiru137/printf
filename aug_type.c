@@ -25,8 +25,8 @@ int aug_type(const char *fmt, int *i, va_list list, char buffer[],
 	};
 	for (j = 0; fmt_types[j].fmt != '\0'; j++)
 		if (fmt[*i] == fmt_types[j].fmt)
-			return (fmt_types[j].fmt(list, buffer, flags, width,
-						precision, size));
+			return (fmt_types[j].k(list, buffer, flag, width,
+					precision, size));
 	if (fmt_types[j].fmt == '\0')
 	{
 		if (fmt[*i] == '\0')
