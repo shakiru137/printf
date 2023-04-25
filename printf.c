@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			printed(buffer, &buffHand);
+			print_buffer(buffer, &buffHand);
 			flag = get_flag(format, &i);
 			width = get_width(format, &i, list);
 			precision = get_precision(format, &i, list);
