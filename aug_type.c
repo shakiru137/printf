@@ -45,7 +45,7 @@ int aug_type(const char *fmt, int *i, va_list list, char buffer[],
 		unknow_length += write(1, &fmt[*i], 1);
 		return (unknow_length);
 	}
-	return (chars);
+	return (printed_ch);
 }
 
 
