@@ -29,7 +29,7 @@ int memory(va_list types, char buffer[],
 	num_addrs = (unsigned long)addrs;
 	while (num_addrs > 0)
 	{
-		buffer[ind--] = map_t55o[num_addrs % 16];
+		buffer[ind--] = map_to[num_addrs % 16];
 		num_addrs /= 16;
 		length++;
 	}
@@ -41,7 +41,7 @@ int memory(va_list types, char buffer[],
 		extra_c = ' ', length++;
 	ind++;
 	/*return (write(1, &buffer[i], BUFF_SIZE - i - 1));*/
-	return (write_pointer(buffer, ind, length,
+	return (handlePointer(buffer, ind, length,
 				width, flags, padd, extra_c, padd_start));
 }
 /************************* PRINT NON PRINTABLE *************************/
@@ -69,10 +69,10 @@ int nonPrint(va_list types, char buffer[],
 		return (write(1, "(null)", 6));
 	while (str[i] != '\0')
 	{
-		if (is_printable(str[i]))
+		if (printable(str[i]))
 			buffer[i + offset] = str[i];
 		else
-			offset += append_hexa_code(str[i], buffer, i + offset);
+			offset += hexaCode(str[i], buffer, i + offset);
 		i++;
 	}
 	buffer[i + offset] = '\0';
