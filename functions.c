@@ -42,7 +42,7 @@ int memory(va_list types, char buffer[],
 	ind++;
 	/*return (write(1, &buffer[i], BUFF_SIZE - i - 1));*/
 	return (handlePointer(buffer, ind, length,
-				width, flags, padd, extra_c, padd_start));
+				width, flag, padd, extra_c, padd_start));
 }
 /************************* PRINT NON PRINTABLE *************************/
 /**
