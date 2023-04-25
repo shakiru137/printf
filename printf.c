@@ -28,12 +28,12 @@ int _printf(const char *format, ...)
 		else
 		{
 			print_buffer(buffer, &buffHand);
-			flag = get_flag(format, &i);
-			width = get_width(format, &i, list);
-			precision = get_precision(format, &i, list);
-			size = get_size(format, &i);
+			flag = flags(format, &i);
+			width = width(format, &i, list);
+			precision = precision(format, &i, list);
+			size = size(format, &i);
 			++i;
-			printedHand = handle_print(format, &i, list, buffer,
+			printedHand = aug_type(format, &i, list, buffer,
 				flag, width, precision, size);
 			if (printedHand == -1)
 				return (-1);
