@@ -60,10 +60,10 @@ int type_hexa_upper(va_list types, char buffer[],
 int type_hexa(va_list types, char map_to[], char buffer[], int flag,
 	char flagCharacter, int width, int precision, int size);
 /* The  funcions to handle the  specifiers */
-int g_flags(const char *format, int *i);
-int g_width(const char *format, int *i, va_list list);
-int g_precision(const char *format, int *i, va_list list);
-int g_size(const char *format, int *i);
+int flags(const char *format, int *i);
+int width(const char *format, int *i, va_list list);
+int precision(const char *format, int *i, va_list list);
+int size(const char *format, int *i);
 /*
  *  The function to print out a string in reverse
  */

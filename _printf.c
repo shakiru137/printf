@@ -28,10 +28,10 @@ int _printf(const char *format, ...)
 		else
 		{
 			print_buffer(buffer, &buffHand);
-			flag = g_flags(format, &i);
-			widths = g_width(format, &i, list);
-			precisions = g_precision(format, &i, list);
-			sizes = g_size(format, &i);
+			flag = flags(format, &i);
+			widths = width(format, &i, list);
+			precisions = precision(format, &i, list);
+			sizes = size(format, &i);
 			++i;
 			printedHand = aug_type(format, &i, list, buffer,
 				flag, widths, precisions, sizes);
