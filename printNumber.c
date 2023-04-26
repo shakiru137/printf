@@ -104,8 +104,8 @@ int type_binary(va_list types, char buffer[], int flag,
 	UNUSED(precision);
 	UNUSED(size);
 
-	num = va_arg(types, unsigned int);
-	m = 2147483648; /* (2 ^ 31) */
+	n = va_arg(types, unsigned int);
+	j = 2147483648; /* (2 ^ 31) */
 
 	for (i = 1; i < 32; i++)
 	{
