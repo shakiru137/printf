@@ -177,7 +177,7 @@ int handlePointer(char buffer[], int index, int length,
 			buffer[--index] = '0';
 			if (ch)
 				buffer[--index] = ch;
-			return (write(1, &buffer[3], 1 - 3) +
+			return (write(1, &buffer[3], i - 3) +
 					write(1, &buffer[index], length));
 		}
 		else if (!(flag & F_MINUS) && point == '0')
