@@ -86,7 +86,7 @@ int handleNum(int index, char orr[], int flag, int width,
 		{
 		if (ch)
 			orr[--index] = ch;
-return (write(1, &orr[1], index - 1) + write(1, &orr[index], length));
+return (write(1, &orr[1], i - 1) + write(1, &orr[index], length));
 		}
 		else if (!(flag & F_MINUS) && d == '0')
 		{
