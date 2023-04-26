@@ -93,8 +93,8 @@ int type_unsigned(va_list types, char buffer[], int flag,
 int type_binary(va_list types, char buffer[], int flag,
 		int width, int precision, int size)
 {
-	unsigned int i, m, num, sum;
-	unsigned int a[32] = {0};
+	unsigned int n, j, i, sum;
+	unsigned int a[32];
 	char z;
 	int count = 0;
 
@@ -107,13 +107,14 @@ int type_binary(va_list types, char buffer[], int flag,
 	num = va_arg(types, unsigned int);
 	m = 2147483648; /* (2 ^ 31) */
 
-	for (i = 0, sum = 0; i < 32; i++, m = m >> 1)
+	for (i = 1; i < 32; i++)
 	{
-		if (num & m)
-		{
-			a[i] = 1;
-			sum++;
-		}
+		j /= 2;
+		a[i] = (n / j) % 2;
+	}
+	for (i = 0, sum = 0, count = 0; i < 32; i++)
+	{
+		sum += a[i];
 		if (sum || i == 31)
 		{
 			z = '0' + a[i];
@@ -121,7 +122,7 @@ int type_binary(va_list types, char buffer[], int flag,
 			count++;
 		}
 	}
-		return (count);
+	return (count);
 }
 
 
