@@ -5,7 +5,7 @@
  * @c: character type.
  * @buffer: Array to handle print.
  * @flag: calculates active flags.
- * @width: get tge width.
+ * @width: get the width.
  * @precision: precision specifiers.
  * @size: size specifier.
  *

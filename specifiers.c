@@ -6,7 +6,7 @@
  *
  * Return: flag on SUCCESS.
  */
-int flags(const char *format, int *i)
+int g_flags(const char *format, int *i)
 {
 	int k, cu_i;
 	int flag = 0;
@@ -36,7 +36,7 @@ int flags(const char *format, int *i)
  *
  * Return: precision on SUCCESS.
  */
-int precision(const char *format, int *i, va_list list)
+int g_precision(const char *format, int *i, va_list list)
 {
 	int curr_i = *i + 1;
 	int prec = -1;
@@ -74,7 +74,7 @@ int precision(const char *format, int *i, va_list list)
  *
  * Return: size on SUCCESS.
  */
-int size(const char *format, int *i)
+int g_size(const char *format, int *i)
 {
 	int cu_i = *i + 1;
 	int sizes = 0;
@@ -98,7 +98,7 @@ int size(const char *format, int *i)
  *
  * Return: wi on SUCCESS.
  */
-int width(const char *format, int *i, va_list list)
+int g_width(const char *format, int *i, va_list list)
 {
 	int cu_i;
 	int wi = 0;

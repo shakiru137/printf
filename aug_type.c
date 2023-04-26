@@ -20,7 +20,7 @@ int aug_type(const char *fmt, int *i, va_list list, char buffer[],
 		{'c', chars}, {'s', strings}, {'%', percents},
 		{'i', type_int}, {'d', type_int}, {'b', type_binary},
 		{'u', type_unsigned}, {'o', type_octal}, {'x', type_hexadecimal},
-		{'X', type_hexa_upper}, {'P', memory}, {'S', nonPrint},
+		{'X', type_hexa_upper}, {'p', memory}, {'S', nonPrint},
 		{'r', reverse}, {'R', rot13string}, {'\0', NULL}
 	};
 	for (j = 0; fmt_types[j].fmt != '\0'; j++)
@@ -41,6 +41,7 @@ int aug_type(const char *fmt, int *i, va_list list, char buffer[],
 				--(*i);
 			if (fmt[*i] == ' ')
 				--(*i);
+			return (1);
 		}
 		unknow_length += write(1, &fmt[*i], 1);
 		return (unknow_length);

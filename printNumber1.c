@@ -51,6 +51,7 @@ int type_hexa(va_list types, char map_to[], char buffer[],
 	while (number > 0)
 	{
 		buffer[i--] = map_to[number % 16];
+		number /= 16;
 	}
 
 	if (flag & F_HASH && num_init != 0)
