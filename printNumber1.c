@@ -14,7 +14,7 @@
 int type_hexa_upper(va_list types, char buffer[], int flag,
 		int width, int precision, int size)
 {
-	return (type_hexa(types, "123456789ABCDEF", buffer,
+	return (type_hexa(types, "0123456789ABCDEF", buffer,
 				flag, 'X', width, precision, size));
 }
 

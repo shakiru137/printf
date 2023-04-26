@@ -227,7 +227,7 @@ int handleUnsigned(int negative, int index,
 		return (0);
 	if (precision > 0 && precision < length)
 		point = ' ';
-	while (precision > 0 && precision < length)
+	while (precision > length)
 	{
 		buffer[--index] = '0';
 		length++;
@@ -243,7 +243,7 @@ int handleUnsigned(int negative, int index,
 
 		if (flag & F_MINUS)
 		{
-			return (write(1, &buffer[0], length) +
+			return (write(1, &buffer[index], length) +
 				write(1, &buffer[0], i));
 		}
 		else
