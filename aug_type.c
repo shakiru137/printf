@@ -2,7 +2,7 @@
 /**
  * aug_type - Fuctiin that prints argument base on it types.
  * @fmt: string to print arguments.
- * @i: Pointer pointing to index of all argument to be printed.
+ * @i: Pointer pointing to indx of all argument to be printed.
  * @list: arguments to be printed.
  * @buffer: array of buffer to handle print.
  * @flag: get the active flags.

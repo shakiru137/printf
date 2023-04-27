@@ -79,14 +79,14 @@ int rot13string(va_list types, char buffer[],
  */
 int handleChar(char c, char buffer[],
 	int flag, int width, int precision, int size);
-int handleNumber(int positive, int index, char buffer[],
+int handleNumber(int positive, int indx, char buffer[],
 	int flag, int width, int precision, int size);
-int handleNum(int index, char orr[], int flag, int width, int precision,
+int handleNum(int indx, char orr[], int flag, int width, int precision,
 	int length, char d, char ch);
-int handlePointer(char buffer[], int index, int length,
+int handlePointer(char buffer[], int indx, int length,
 	int width, int flag, char point, char ch, int pointStart);
 
-int handleUnsigned(int negative, int index,
+int handleUnsigned(int negative, int indx,
 char buffer[], int flag, int width, int precision, int size);
 
 int printable(char);

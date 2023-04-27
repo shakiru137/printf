@@ -45,7 +45,7 @@ int handleChar(char c, char buffer[],
 /******************************HANDLE NUM*********************************/
 /**
  * handleNum - Write a number using a buffer
- * @index: The index at which the number starts on the buffer.
+ * @indx: The indx at which the number starts on the buffer.
  * @orr: The buffer.
  * @flag: The flags.
  * @width: The width.
@@ -55,20 +55,20 @@ int handleChar(char c, char buffer[],
  * @ch: The extra character.
  * Return: Number of printed characters.
  */
-int handleNum(int index, char orr[], int flag, int width,
+int handleNum(int indx, char orr[], int flag, int width,
 		int precision, int length, char d, char ch)
 {
 	int i, d_start = 1;
 
-	if (precision == 0 && index == BUFF_SIZE - 2 &&
-			orr[index] == '0' && width == 0)
+	if (precision == 0 && indx == BUFF_SIZE - 2 &&
+			orr[indx] == '0' && width == 0)
 		return (0);
-	if (precision == 0 && index == BUFF_SIZE - 2 && orr[index] == '0')
-		orr[index] = d = ' ';
+	if (precision == 0 && indx == BUFF_SIZE - 2 && orr[indx] == '0')
+		orr[indx] = d = ' ';
 	if (precision > 0 && precision < length)
 		d = ' ';
 	while (precision > length)
-		orr[--index] = '0', length++;
+		orr[--indx] = '0', length++;
 	if (ch != 0)
 		length++;
 	if (width > length)
@@ -79,26 +79,26 @@ int handleNum(int index, char orr[], int flag, int width,
 		if (flag & F_MINUS && d == ' ')
 		{
 		if (ch)
-			orr[--index] = ch;
-		return (write(1, &orr[index], length) + write(1, &orr[1], i - 1));
+			orr[--indx] = ch;
+		return (write(1, &orr[indx], length) + write(1, &orr[1], i - 1));
 		}
 		else if (!(flag & F_MINUS) && d == ' ')
 		{
 		if (ch)
-			orr[--index] = ch;
-return (write(1, &orr[1], i - 1) + write(1, &orr[index], length));
+			orr[--indx] = ch;
+return (write(1, &orr[1], i - 1) + write(1, &orr[indx], length));
 		}
 		else if (!(flag & F_MINUS) && d == '0')
 		{
 		if (ch)
 			orr[--d_start] = ch;
 		return (write(1, &orr[d_start], i - d_start) +
-		write(1, &orr[index], length - (1 - d_start)));
+		write(1, &orr[indx], length - (1 - d_start)));
 		}
 	}
 	if (ch)
-		orr[--index] = ch;
-	return (write(1, &orr[index], length));
+		orr[--indx] = ch;
+	return (write(1, &orr[indx], length));
 }
 
 
@@ -107,7 +107,7 @@ return (write(1, &orr[1], i - 1) + write(1, &orr[index], length));
  * handleNumber - function that return an integer value which is the
  * number of characters written to the buffer.
  * @positive: Indicates if the number to be written is positive or not
- * @index: Represents the starting index of the buffer
+ * @indx: Represents the starting indx of the buffer
  * @buffer: Array (string) that contains the number to be written
  * @flag: Contains the flags for the conversion
  * @width: Represents the minimum width of the output
@@ -116,10 +116,10 @@ return (write(1, &orr[1], i - 1) + write(1, &orr[index], length));
  *
  * Return: pnteger value.
  */
-int handleNumber(int positive, int index, char buffer[], int flag,
+int handleNumber(int positive, int indx, char buffer[], int flag,
 		int width, int precision, int size)
 {
-	int length = BUFF_SIZE - index - 1;
+	int length = BUFF_SIZE - indx - 1;
 	char padding = ' ';
 	char extra_c = 0;
 
@@ -133,7 +133,7 @@ int handleNumber(int positive, int index, char buffer[], int flag,
 		extra_c = '+';
 	else if (flag & F_SPACE)
 		extra_c = ' ';
-	return (handleNum(index, buffer, flag, width, precision, length,
+	return (handleNum(indx, buffer, flag, width, precision, length,
 				padding, extra_c));
 }
 
@@ -142,17 +142,17 @@ int handleNumber(int positive, int index, char buffer[], int flag,
 /**
  * handlePointer - Function that write the memory address.
  * @buffer: Arrays of characters.
- * @index: index at wgich the number start in the buffer.
+ * @indx: indx at wgich the number start in the buffer.
  * @length: The length of number.
  * @width: specification of the width.
  * @flag: specification of flags.
  * @point: character pointing to padding.
  * @ch: Representing extra character.
- * @pointStart: Pointing to index at which the padding will start.
+ * @pointStart: Pointing to indx at which the padding will start.
  *
  * Return: Number of written charaters.
  */
-int handlePointer(char buffer[], int index, int length,
+int handlePointer(char buffer[], int indx, int length,
 		int width, int flag, char point, char ch, int pointStart)
 {
 	int i;
@@ -164,21 +164,21 @@ int handlePointer(char buffer[], int index, int length,
 		buffer[i] = '\0';
 		if (flag & F_MINUS && point == ' ')
 		{
-			buffer[--index] = 'x';
-			buffer[--index] = '0';
+			buffer[--indx] = 'x';
+			buffer[--indx] = '0';
 			if (ch)
-				buffer[--index] = ch;
-			return (write(1, &buffer[index], length) +
+				buffer[--indx] = ch;
+			return (write(1, &buffer[indx], length) +
 						write(1, &buffer[3], i - 3));
 		}
 		else if (!(flag & F_MINUS) && point == ' ')
 		{
-			buffer[--index] = 'x';
-			buffer[--index] = '0';
+			buffer[--indx] = 'x';
+			buffer[--indx] = '0';
 			if (ch)
-				buffer[--index] = ch;
+				buffer[--indx] = ch;
 			return (write(1, &buffer[3], i - 3) +
-					write(1, &buffer[index], length));
+					write(1, &buffer[indx], length));
 		}
 		else if (!(flag & F_MINUS) && point == '0')
 		{
@@ -187,14 +187,14 @@ int handlePointer(char buffer[], int index, int length,
 			buffer[1] = '0';
 			buffer[2] = 'x';
 			return (write(1, &buffer[pointStart], i - pointStart) +
-		write(1, &buffer[index], length - (1 - pointStart) - 2));
+		write(1, &buffer[indx], length - (1 - pointStart) - 2));
 		}
 	}
-	buffer[--index] = 'x';
-	buffer[--index] = '0';
+	buffer[--indx] = 'x';
+	buffer[--indx] = '0';
 	if (ch)
-		buffer[--index] = ch;
-	return (write(1, &buffer[index], BUFF_SIZE - index - 1));
+		buffer[--indx] = ch;
+	return (write(1, &buffer[indx], BUFF_SIZE - indx - 1));
 }
 
 
@@ -203,7 +203,7 @@ int handlePointer(char buffer[], int index, int length,
 /**
  * handleUnsigned - Function that write unsigned number.
  * @negative: To indicate negative number.
- * @index: Index at which the number will start in the buffer.
+ * @indx: Index at which the number will start in the buffer.
  * @buffer: Array of charaters.
  * @flag: Flags specifier.
  * @width: Width specifier.
@@ -212,24 +212,24 @@ int handlePointer(char buffer[], int index, int length,
  *
  * Return: Tne int in buffer.
  */
-int handleUnsigned(int negative, int index,
+int handleUnsigned(int negative, int indx,
 		char buffer[], int flag, int width, int precision, int size)
 {
 	int i = 0;
 	char point = ' ';
 
-	int length = BUFF_SIZE - index - 1;
+	int length = BUFF_SIZE - indx - 1;
 
 	UNUSED(negative);
 	UNUSED(size);
 
-	if (precision == 0 && index == BUFF_SIZE - 2 && buffer[index] == '0')
+	if (precision == 0 && indx == BUFF_SIZE - 2 && buffer[indx] == '0')
 		return (0);
 	if (precision > 0 && precision < length)
 		point = ' ';
 	while (precision > length)
 	{
-		buffer[--index] = '0';
+		buffer[--indx] = '0';
 		length++;
 	}
 
@@ -243,15 +243,15 @@ int handleUnsigned(int negative, int index,
 
 		if (flag & F_MINUS)
 		{
-			return (write(1, &buffer[index], length) +
+			return (write(1, &buffer[indx], length) +
 				write(1, &buffer[0], i));
 		}
 		else
 		{
 			return (write(1, &buffer[0], i) +
-				write(1, &buffer[index], length));
+				write(1, &buffer[indx], length));
 		}
 	}
 
-	return (write(1, &buffer[index], length));
+	return (write(1, &buffer[indx], length));
 }
