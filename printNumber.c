@@ -22,7 +22,7 @@ int type_int(va_list type, char buffer[], int flag,
 	num = numberConv(num, size);
 
 	if (num == 0)
-		buffer[i--] = 0;
+		buffer[i--] = '0';
 
 	buffer[BUFF_SIZE - 1] = '\0';
 	number = (unsigned long int)num;
@@ -36,7 +36,7 @@ int type_int(va_list type, char buffer[], int flag,
 	while (number > 0)
 	{
 		buffer[i--] = (number % 10) + '0';
-		number = number / 10;
+		number /= 10;
 	}
 	i++;
 
