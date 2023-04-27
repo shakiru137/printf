@@ -29,7 +29,7 @@ int type_int(va_list type, char buffer[], int flag,
 
 	if (num < 0)
 	{
-		num = (unsigned long int)((-1) * num);
+		number = (unsigned long int)((-1) * num);
 		is_negative = 1;
 	}
 
